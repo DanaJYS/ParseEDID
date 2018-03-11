@@ -8,7 +8,7 @@
 class MyFrame:public wxFrame
 {
 public:
-	MyFrame(const wxString &title=wxT("AUI"));
+	MyFrame(const wxString &title=wxT("AUI"), const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxSize(600,500));
 	~MyFrame();
 
 private:
