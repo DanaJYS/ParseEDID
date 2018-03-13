@@ -335,11 +335,22 @@ typedef struct _CBIOS_EDID_STRUCTURE_DATA
 }CBIOS_EDID_STRUCTURE_DATA, *PCBIOS_EDID_STRUCTURE_DATA;
 
 
+typedef struct _CBIOS_Module_EDID_ESTTIMINGS
+{
+	unsigned short	XResolution;
+	unsigned short	YResolution;
+	unsigned short	RefreshRate;
+}CBIOS_Module_EDID_ESTTIMINGS;
+
+
 class ParseEDIDClass
 {
 private:
 	bool cbEDIDModule_IsEDIDValid(unsigned char* pEDID);
 	bool cbEDIDModule_IsEDIDHeaderValid(unsigned char* pEDIDBuffer, unsigned int ulBufferSize);
+	unsigned int cbEDIDModule_GetEstablishMode(unsigned char* pEDID, PCBIOS_S3GMODE_INFO pEstablishMode);
+	unsigned int cbEDIDModule_GetStandardMode(unsigned char* pEDID, PCBIOS_S3GMODE_INFO pStandardMode);
+	unsigned int cbEDIDModule_GetDetailedMode(unsigned char* pEDID, PCBIOS_MODE_INFO_EXT pDetailedMode, unsigned int byTotalModeNum);
 
 	
 public:
